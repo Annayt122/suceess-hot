@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Acesso Restrito</title>
+    
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq.methods[i=0];i<ttq.methods.length;i++)ttq.setAndDefer(t,ttq.methods[i]);return t},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+    
+      /* SEU PIXEL JÁ CONFIGURADO AQUI */
+      ttq.load('D5G26NBC77U8MH07BPAG'); 
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <style>
+        /* ESTILO DA PÁGINA */
+        body {
+            background-color: #000000; /* Fundo Preto Total */
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altura total da tela */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 22px;
+            margin-bottom: 40px;
+            font-weight: normal;
+        }
+
+        /* ESTILO DO BOTÃO */
+        .botao-telegram {
+            display: inline-block;
+            background-color: #24A1DE; /* Azul Telegram */
+            color: white;
+            text-decoration: none; /* Tira o sublinhado */
+            padding: 20px 40px; /* Tamanho do botão */
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 50px; /* Borda redonda */
+            box-shadow: 0 0 20px rgba(36, 161, 222, 0.5); /* Brilho azul */
+            transition: transform 0.2s; /* Animação suave */
+            cursor: pointer;
+        }
+
+        /* Efeito ao clicar */
+        .botao-telegram:active {
+            transform: scale(0.95);
+        }
+
+        .aviso {
+            font-size: 11px;
+            color: #555;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Este conteúdo é restrito.<br>Você confirma que tem mais de 18 anos?</h1>
+
+    <a href="https://t.me/casadasninfasvip3_bot" class="botao-telegram" onclick="ttq.track('InitiateCheckout')">
+        SIM, TENHO +18
+    </a>
+
+    <div class="aviso">
+        Não afiliado ao TikTok.
+    </div>
+
+</body>
+</html>
