@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliação de Perfil Foco e Atenção</title>
+    <title>Análise de Perfil Neurológico</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text: #1e293b;
+            --primary: #dc2626; /* Vermelho alerta para urgência */
+            --bg: #0f172a; /* Fundo escuro estilo Black */
+            --card-bg: #1e293b;
+            --text: #f8fafc;
         }
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -18,74 +18,124 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .container {
             background-color: var(--card-bg);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
             text-align: center;
+            border: 1px solid #334155;
         }
-        h1 { font-size: 1.5rem; margin-bottom: 1rem; }
+        h1 { font-size: 1.6rem; margin-bottom: 1rem; color: #f8fafc; }
+        .highlight { color: #ef4444; }
         .options {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             margin-top: 20px;
         }
         button {
-            background-color: var(--card-bg);
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 12px;
+            background-color: transparent;
+            border: 2px solid #475569;
+            color: var(--text);
+            padding: 14px;
             border-radius: 8px;
             cursor: pointer;
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.2s;
         }
         button:hover {
-            background-color: var(--primary);
-            color: white;
+            border-color: var(--primary);
+            background-color: rgba(220, 38, 38, 0.1);
         }
+        
+        /* Inputs para Captura */
+        .input-group {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background-color: #0f172a;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
         .cta-button {
-            background-color: #10b981;
-            border-color: #10b981;
+            background-color: #22c55e;
+            border: none;
             color: white;
             font-size: 1.2rem;
-            padding: 15px;
+            font-weight: bold;
+            padding: 18px;
             width: 100%;
-            margin-top: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            animation: pulse 2s infinite;
         }
-        .cta-button:hover { background-color: #059669; }
+        .cta-button:hover { background-color: #16a34a; }
         
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
         /* Telas Ocultas */
-        #loading-screen, #paywall-screen { display: none; }
+        #loading-screen, #capture-screen, #paywall-screen { display: none; }
         
         /* Barra de Progresso */
         .progress-bar {
             width: 100%;
-            height: 10px;
-            background-color: #e2e8f0;
-            border-radius: 5px;
-            margin-top: 20px;
+            height: 12px;
+            background-color: #334155;
+            border-radius: 6px;
+            margin-top: 25px;
             overflow: hidden;
         }
         .progress-fill {
             height: 100%;
             background-color: var(--primary);
             width: 0%;
-            transition: width 3s linear;
+            transition: width 3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .disclaimer {
             font-size: 0.75rem;
             color: #64748b;
-            margin-top: 20px;
+            margin-top: 25px;
+            line-height: 1.4;
         }
+        .urgency-box {
+            background-color: rgba(220, 38, 38, 0.1);
+            border: 1px dashed #ef4444;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+        .urgency-box li { margin-bottom: 8px; }
     </style>
 </head>
 <body>
@@ -93,47 +143,72 @@
     <div class="container">
         <!-- TELA DO QUIZ -->
         <div id="quiz-screen">
-            <h1 id="question-text">1. Com que frequência você tem dificuldade para manter a atenção em tarefas chatas ou repetitivas?</h1>
+            <h1 id="question-text">1. Com que frequência você sente que tem um "motor interno" que não desliga, prejudicando seu foco?</h1>
             <div class="options">
-                <button onclick="nextQuestion()">Nunca</button>
-                <button onclick="nextQuestion()">Raramente</button>
-                <button onclick="nextQuestion()">Algumas vezes</button>
+                <button onclick="nextQuestion()">Nunca percebi</button>
+                <button onclick="nextQuestion()">Às vezes</button>
                 <button onclick="nextQuestion()">Frequentemente</button>
-                <button onclick="nextQuestion()">Muito frequentemente</button>
+                <button onclick="nextQuestion()">Todos os dias, é exaustivo</button>
             </div>
-            <p class="disclaimer">Pergunta <span id="q-num">1</span> de 5</p>
+            <p class="disclaimer">Questão <span id="q-num">1</span> de 4</p>
         </div>
 
-        <!-- TELA DE CARREGAMENTO (Gatilho de Antecipação) -->
+        <!-- TELA DE CARREGAMENTO -->
         <div id="loading-screen">
-            <h1>Analisando suas respostas...</h1>
-            <p>Cruzando dados comportamentais neurológicos.</p>
+            <h1><span class="highlight">Aviso Crítico:</span> Analisando Padrões...</h1>
+            <p style="color: #94a3b8;">Nossa inteligência está cruzando seus sintomas com milhares de laudos comportamentais. Por favor, aguarde.</p>
             <div class="progress-bar">
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
         </div>
 
-        <!-- TELA DO PAYWALL -->
-        <div id="paywall-screen">
-            <h1>⚠️ Seu resultado está pronto!</h1>
-            <p>Identificamos fortes padrões no seu perfil. Preparamos um relatório completo detalhando seus níveis de atenção e possíveis traços de TDAH.</p>
+        <!-- TELA DE CAPTURA DO LEAD (Passo Intermediário) -->
+        <div id="capture-screen">
+            <h1>Sua análise foi concluída com <span class="highlight">sucesso.</span></h1>
+            <p style="font-size: 1.1rem; margin-bottom: 20px;">Detectamos <strong>padrões alarmantes</strong> de dispersão e déficit de atenção no seu perfil.</p>
             
-            <!-- Aqui você insere o link do seu checkout (Kiwify, Hotmart, PerfectPay, etc) -->
+            <div class="input-group">
+                <label for="whatsapp">Para gerar seu Dossiê e liberar a página de resultados, informe o WhatsApp do responsável (com DDD):</label>
+                <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" required>
+            </div>
+            
+            <button class="cta-button" style="background-color: #3b82f6; box-shadow: none; animation: none;" onclick="processLead()">
+                Avançar para o Resultado ➔
+            </button>
+        </div>
+
+        <!-- TELA DO PAYWALL (Agressiva) -->
+        <div id="paywall-screen">
+            <h1>🚨 ALERTA: Seu cérebro está <span class="highlight">trabalhando contra você.</span></h1>
+            
+            <div class="urgency-box">
+                <p><strong>O diagnóstico prévio mostra que:</strong></p>
+                <ul>
+                    <li>Você não é "preguiçoso". O problema não é falta de força de vontade.</li>
+                    <li>Existe um <strong>padrão químico invisível</strong> drenando sua energia diária.</li>
+                    <li>Seu potencial está sendo desperdiçado devido a ciclos de procrastinação aguda.</li>
+                </ul>
+            </div>
+
+            <p style="margin-bottom: 20px;">Liberamos um <strong>Dossiê Confidencial</strong> contendo o mapeamento exato da sua mente e o protocolo prático para "hackear" seu foco e retomar o controle da sua vida hoje mesmo.</p>
+            
+            <p style="color: #ef4444; font-size: 0.9rem; font-weight: bold;">⚠️ Atenção: Por questões de sigilo e capacidade do servidor, seu laudo será deletado permanentemente em 10 minutos se não for acessado.</p>
+            
+            <!-- Link do Checkout aqui -->
             <button class="cta-button" onclick="window.location.href='URL_DO_SEU_CHECKOUT_AQUI'">
-                Desbloquear Meu Resultado (R$ 19,90)
+                DESBLOQUEAR MEU DOSSIÊ AGORA (R$ 27,90)
             </button>
             
-            <p class="disclaimer">Aviso: Este teste é um rastreio comportamental e não substitui o diagnóstico de um profissional de saúde qualificado.</p>
+            <p class="disclaimer">Este relatório possui caráter informativo e de autoconhecimento comportamental. Não substitui, sob nenhuma hipótese, o diagnóstico ou tratamento por um profissional médico psiquiatra.</p>
         </div>
     </div>
 
     <script>
         const questions = [
-            "1. Com que frequência você tem dificuldade para manter a atenção em tarefas chatas ou repetitivas?",
-            "2. Com que frequência você se distrai com facilidade por coisas acontecendo ao seu redor?",
-            "3. Com que frequência você tem dificuldade para se organizar e começar uma tarefa importante?",
-            "4. Com que frequência você se sente inquieto ou com necessidade de estar sempre em movimento?",
-            "5. Com que frequência você interrompe os outros ou responde antes da pessoa terminar de falar?"
+            "1. Com que frequência você sente que tem um 'motor interno' que não desliga, prejudicando seu foco?",
+            "2. Quantas vezes você começou projetos incríveis na sua cabeça, mas abandonou pela metade por perder o interesse?",
+            "3. Você sente que precisa fazer o dobro de esforço que as outras pessoas para terminar uma tarefa chata ou burocrática?",
+            "4. Com que frequência a 'névoa mental' impede você de lembrar onde colocou as coisas ou o que ia fazer?"
         ];
         
         let currentQ = 0;
@@ -152,16 +227,28 @@
             document.getElementById('quiz-screen').style.display = 'none';
             document.getElementById('loading-screen').style.display = 'block';
             
-            // Inicia a animação da barra
             setTimeout(() => {
                 document.getElementById('progress-fill').style.width = '100%';
             }, 100);
 
-            // Aguarda 3 segundos para gerar antecipação e chama o paywall
             setTimeout(() => {
                 document.getElementById('loading-screen').style.display = 'none';
-                document.getElementById('paywall-screen').style.display = 'block';
+                document.getElementById('capture-screen').style.display = 'block';
             }, 3000);
+        }
+
+        function processLead() {
+            const wpp = document.getElementById('whatsapp').value;
+            if(wpp.length < 10) {
+                alert("Por favor, insira um número de WhatsApp válido com DDD.");
+                return;
+            }
+            
+            // Aqui entra a sua lógica de disparo para o banco de dados/webhook antes de ir pro paywall
+            // ex: fetch('sua-url-de-webhook', { method: 'POST', body: JSON.stringify({ whatsapp: wpp }) });
+
+            document.getElementById('capture-screen').style.display = 'none';
+            document.getElementById('paywall-screen').style.display = 'block';
         }
     </script>
 </body>
