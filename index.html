@@ -1,299 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pequenos Corações Corajosos</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
---bg:#050508;
---card:#111118;
---gold:#FFD700;
---blue:#4F8CFF;
---white:#fff;
---muted:#A0A0B0;
---border:rgba(255,255,255,.08);
---green:#22C55E;
-}
-body{
-background:var(--bg);
-color:white;
-font-family:'Inter',sans-serif;
-overflow-x:hidden;
-}
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:40px 20px;
-background:
-radial-gradient(circle at center,rgba(79,140,255,.15),transparent 60%),
-#050508;
-}
-.container{
-max-width:1100px;
-margin:auto;
-padding:0 24px;
-}
-.badge{
-display:inline-block;
-padding:10px 20px;
-border:1px solid var(--blue);
-border-radius:50px;
-color:var(--blue);
-font-size:.8rem;
-font-weight:700;
-margin-bottom:25px;
-}
-h1{
-font-family:'Bebas Neue',sans-serif;
-font-size:clamp(3rem,9vw,7rem);
-line-height:.95;
-margin-bottom:20px;
-}
-.gold{color:var(--gold)}
-.blue{color:var(--blue)}
-.subtitle{
-max-width:750px;
-margin:auto;
-font-size:1.2rem;
-color:var(--muted);
-line-height:1.8;
-}
-.btn{
-display:inline-block;
-margin-top:35px;
-padding:20px 50px;
-background:var(--blue);
-color:white;
-text-decoration:none;
-font-weight:800;
-border-radius:10px;
-font-size:1rem;
-}
-.section{
-padding:90px 0;
-}
-.section-title{
-font-family:'Bebas Neue',sans-serif;
-font-size:clamp(2rem,5vw,4rem);
-margin-bottom:15px;
-}
-.center{
-text-align:center;
-}
-.text{
-color:var(--muted);
-font-size:1.05rem;
-line-height:1.8;
-max-width:800px;
-margin:auto;
-}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:40px;
-}
-.card{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:14px;
-padding:30px;
-}
-.card h3{
-margin-bottom:10px;
-color:var(--gold);
-}
-.card p{
-color:var(--muted);
-line-height:1.7;
-}
-.book{
-max-width:280px;
-height:360px;
-margin:40px auto;
-border-radius:16px;
-background:linear-gradient(135deg,#3B82F6,#1D4ED8);
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:30px;
-box-shadow:0 20px 80px rgba(59,130,246,.35);
-}
-.book h3{
-font-family:'Bebas Neue',sans-serif;
-font-size:2rem;
-line-height:1;
-}
-.price-box{
-max-width:600px;
-margin:auto;
-background:var(--card);
-border:2px solid var(--blue);
-padding:40px;
-border-radius:16px;
-text-align:center;
-}
-.old{
-color:var(--muted);
-text-decoration:line-through;
-margin-bottom:10px;
-}
-.price{
-font-family:'Bebas Neue',sans-serif;
-font-size:5rem;
-line-height:1;
-}
-.list{
-list-style:none;
-margin:30px 0;
-text-align:left;
-}
-.list li{
-padding:10px 0;
-border-bottom:1px solid var(--border);
-}
-.footer{
-padding:40px;
-text-align:center;
-color:var(--muted);
-font-size:.8rem;
-border-top:1px solid var(--border);
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Perfil Foco e Atenção</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: var(--card-bg);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        .cta-button {
+            background-color: #10b981;
+            border-color: #10b981;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .cta-button:hover { background-color: #059669; }
+        
+        /* Telas Ocultas */
+        #loading-screen, #paywall-screen { display: none; }
+        
+        /* Barra de Progresso */
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #e2e8f0;
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 3s linear;
+        }
+        .disclaimer {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-<section class="hero">
-<div class="container">
-<div class="badge">
-GUIA PARA PAIS E RESPONSÁVEIS
-</div>
-<h1>
-SEU FILHO ESTÁ<br>
-<span class="blue">PREOCUPADO DEMAIS</span><br>
-PARA A IDADE DELE?
-</h1>
-<p class="subtitle">
-Descubra estratégias práticas para ajudar crianças a lidar melhor com medos, inseguranças e preocupações excessivas.
-</p>
-<a href="#comprar" class="btn">
-QUERO AJUDAR UMA CRIANÇA
-</a>
-</div>
-</section>
-<section class="section">
-<div class="container center">
-<h2 class="section-title">
-TALVEZ VOCÊ JÁ TENHA PERCEBIDO...
-</h2>
-<p class="text">
-Ela pensa demais.
-Tem medo de errar.
-Fica nervosa por coisas simples.
-Tem dificuldade para dormir.
-E muitas vezes não consegue explicar o que está sentindo.
-</p>
-</div>
-</section>
-<section class="section">
-<div class="container">
-<h2 class="section-title center">
-SINAIS QUE MERECEM ATENÇÃO
-</h2>
-<div class="grid">
-<div class="card">
-<h3>😟 Preocupação Excessiva</h3>
-<p>Pensa constantemente em situações que ainda nem aconteceram.</p>
-</div>
-<div class="card">
-<h3>🌙 Dificuldade Para Dormir</h3>
-<p>Demora para pegar no sono ou acorda preocupada.</p>
-</div>
-<div class="card">
-<h3>🏫 Medo de Errar</h3>
-<p>Fica muito insegura diante de desafios simples.</p>
-</div>
-<div class="card">
-<h3>💭 Pensamentos Repetitivos</h3>
-<p>Revive situações e preocupações várias vezes.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="section">
-<div class="container center">
-<h2 class="section-title">
-APRESENTANDO
-</h2>
-<div class="book">
-<h3>
-PEQUENOS<br>
-CORAÇÕES<br>
-CORAJOSOS
-</h3>
-</div>
-<p class="text">
-Um guia digital criado para ajudar pais, avós e responsáveis a apoiar crianças que enfrentam medos, inseguranças e preocupações excessivas.
-</p>
-</div>
-</section>
-<section class="section">
-<div class="container">
-<h2 class="section-title center">
-O QUE VOCÊ VAI APRENDER
-</h2>
-<div class="grid">
-<div class="card">
-<h3>✓ Identificar sinais</h3>
-<p>Aprenda a reconhecer comportamentos que podem indicar ansiedade infantil.</p>
-</div>
-<div class="card">
-<h3>✓ Conversar melhor</h3>
-<p>Saiba como acolher a criança sem aumentar a pressão.</p>
-</div>
-<div class="card">
-<h3>✓ Desenvolver confiança</h3>
-<p>Estratégias para fortalecer a segurança emocional.</p>
-</div>
-<div class="card">
-<h3>✓ Criar hábitos positivos</h3>
-<p>Rotinas simples para uma infância mais tranquila.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="section" id="comprar">
-<div class="container">
-<div class="price-box">
-<h2 class="section-title">
-OFERTA ESPECIAL
-</h2>
-<p class="old">De R$97,00</p>
-<div class="price">
-R$37
-</div>
-<ul class="list">
-<li>✓ Ebook completo</li>
-<li>✓ Leitura em celular e computador</li>
-<li>✓ Acesso imediato</li>
-<li>✓ Atualizações futuras</li>
-<li>✓ Garantia de 7 dias</li>
-</ul>
-<a href="#" class="btn">
-QUERO RECEBER AGORA
-</a>
-</div>
-</div>
-</section>
-<footer class="footer">
-© 2026 Pequenos Corações Corajosos<br>
-Material educativo. Não substitui acompanhamento profissional.
-</footer>
+
+    <div class="container">
+        <!-- TELA DO QUIZ -->
+        <div id="quiz-screen">
+            <h1 id="question-text">1. Com que frequência você tem dificuldade para manter a atenção em tarefas chatas ou repetitivas?</h1>
+            <div class="options">
+                <button onclick="nextQuestion()">Nunca</button>
+                <button onclick="nextQuestion()">Raramente</button>
+                <button onclick="nextQuestion()">Algumas vezes</button>
+                <button onclick="nextQuestion()">Frequentemente</button>
+                <button onclick="nextQuestion()">Muito frequentemente</button>
+            </div>
+            <p class="disclaimer">Pergunta <span id="q-num">1</span> de 5</p>
+        </div>
+
+        <!-- TELA DE CARREGAMENTO (Gatilho de Antecipação) -->
+        <div id="loading-screen">
+            <h1>Analisando suas respostas...</h1>
+            <p>Cruzando dados comportamentais neurológicos.</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- TELA DO PAYWALL -->
+        <div id="paywall-screen">
+            <h1>⚠️ Seu resultado está pronto!</h1>
+            <p>Identificamos fortes padrões no seu perfil. Preparamos um relatório completo detalhando seus níveis de atenção e possíveis traços de TDAH.</p>
+            
+            <!-- Aqui você insere o link do seu checkout (Kiwify, Hotmart, PerfectPay, etc) -->
+            <button class="cta-button" onclick="window.location.href='URL_DO_SEU_CHECKOUT_AQUI'">
+                Desbloquear Meu Resultado (R$ 19,90)
+            </button>
+            
+            <p class="disclaimer">Aviso: Este teste é um rastreio comportamental e não substitui o diagnóstico de um profissional de saúde qualificado.</p>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            "1. Com que frequência você tem dificuldade para manter a atenção em tarefas chatas ou repetitivas?",
+            "2. Com que frequência você se distrai com facilidade por coisas acontecendo ao seu redor?",
+            "3. Com que frequência você tem dificuldade para se organizar e começar uma tarefa importante?",
+            "4. Com que frequência você se sente inquieto ou com necessidade de estar sempre em movimento?",
+            "5. Com que frequência você interrompe os outros ou responde antes da pessoa terminar de falar?"
+        ];
+        
+        let currentQ = 0;
+
+        function nextQuestion() {
+            currentQ++;
+            if (currentQ < questions.length) {
+                document.getElementById('question-text').innerText = questions[currentQ];
+                document.getElementById('q-num').innerText = currentQ + 1;
+            } else {
+                showLoading();
+            }
+        }
+
+        function showLoading() {
+            document.getElementById('quiz-screen').style.display = 'none';
+            document.getElementById('loading-screen').style.display = 'block';
+            
+            // Inicia a animação da barra
+            setTimeout(() => {
+                document.getElementById('progress-fill').style.width = '100%';
+            }, 100);
+
+            // Aguarda 3 segundos para gerar antecipação e chama o paywall
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.display = 'none';
+                document.getElementById('paywall-screen').style.display = 'block';
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
